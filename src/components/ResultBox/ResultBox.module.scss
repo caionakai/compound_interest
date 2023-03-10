@@ -1,0 +1,19 @@
+.resultBox {
+  background-color: #c0daac;
+  width: 200px;
+  height: 116px;
+  border-radius: 6px;
+  text-align: center;
+  margin: 10px;
+  padding-top: 10px;
+
+  p {
+    margin: 0px;
+  }
+
+  span {
+    display: block;
+    margin-top: 20px;
+    font-size: 26px;
+  }
+}
