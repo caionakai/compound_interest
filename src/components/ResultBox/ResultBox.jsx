@@ -6,11 +6,14 @@ const ResultBox = ({ title, value }) => {
   return (
     <div className={styles.resultBox}>
       <p>{title}</p>
-      <span>{value}</span>
+      <span>€ {value}</span>
     </div>
   );
 };
 
-ResultBox.propTypes = {};
+ResultBox.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+};
 
 export default ResultBox;

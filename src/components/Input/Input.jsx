@@ -1,31 +1,23 @@
 import PropTypes from "prop-types";
+import styles from "./InputGroup.module.scss";
 
-import InputTextLeft from "./InputTextLeft";
-
-import styles from "./Input.module.scss";
-
-const Input = ({ label, children, placeholder }) => {
+const Input = ({ value, setState }) => {
   return (
-    <div className={styles.inputGroup}>
-      <label htmlFor="">{label}</label>
-      <div className={styles.wrapper}>
-        {children}
-        <input
-          type="number"
-          min="0.00"
-          step="0.01"
-          placeholder={placeholder}
-          className={styles.input}
-        />
-      </div>
-    </div>
+    <input
+      type="number"
+      min="0.00"
+      step="0.01"
+      placeholder="0.00"
+      className={styles.input}
+      value={value}
+      onChange={(e) => setState(parseFloat(e.target.value))}
+    />
   );
 };
 
 Input.propTypes = {
-  label: PropTypes.string,
+  value: PropTypes.number.isRequired,
+  setState: PropTypes.func.isRequired,
 };
-
-Input.TextLeft = InputTextLeft;
 
 export default Input;
