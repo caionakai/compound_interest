@@ -1,0 +1,22 @@
+.app {
+  background-color: #edf2eb;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1rem;
+  background-color: #edf2eb;
+
+  @media screen and (max-width: 550px){
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.results {
+  @media screen and (max-width: 550px){
+    margin-top: 30px;
+  }
+}

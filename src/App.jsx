@@ -2,7 +2,8 @@ import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import CalculatorForm from "./components/CalculatorForm/CalculatorForm";
 import ResultBox from "./components/ResultBox/ResultBox";
-import "./App.css";
+
+import styles from "./App.module.scss";
 
 function App() {
   const [results, setResults] = useState({
@@ -12,11 +13,11 @@ function App() {
   });
 
   return (
-    <div className="App">
+    <div className={styles.app}>
       <Navbar></Navbar>
-      <div className="main">
+      <div className={styles.main}>
         <CalculatorForm setResults={setResults} />
-        <div className="results">
+        <div className={styles.results}>
           <ResultBox title="Total" value={results.total} />
           <ResultBox title="Total Investido" value={results.totalInvested} />
           <ResultBox title="Juros" value={results.interest} />
