@@ -6,7 +6,7 @@ const Input = ({ value, setState }) => {
     <input
       type="number"
       min="0.00"
-      step="0.01"
+      step="1.00"
       placeholder="0.00"
       className={styles.input}
       value={value}

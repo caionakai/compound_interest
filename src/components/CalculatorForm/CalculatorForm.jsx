@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { GoCalendar } from "react-icons/go";
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
 import InputGroup from "../Input/InputGroup";
@@ -88,7 +89,9 @@ const CalculatorForm = ({ setResults }) => {
       </InputGroup>
 
       <InputGroup label="Período">
-        <InputGroup.TextLeft>€</InputGroup.TextLeft>
+        <InputGroup.TextLeft>
+          <GoCalendar />
+        </InputGroup.TextLeft>
         <InputGroup.Input value={period} setState={setPeriod} />
         <Select value={periodFrequency} setState={setPeriodFrequency}>
           <Select.Option value="yearly">Ano</Select.Option>
