@@ -7,6 +7,13 @@ import Select from "../Select/Select";
 
 import styles from "./CalculatorForm.module.scss";
 
+const formatCurrency = (number) => {
+  return new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+  }).format(number);
+};
+
 const CalculatorForm = ({ setResults }) => {
   const [interestRateFrequency, setInterestRateFrequency] = useState("yearly");
   const [periodFrequency, setPeriodFrequency] = useState("yearly");
@@ -23,6 +30,7 @@ const CalculatorForm = ({ setResults }) => {
     setPeriod("");
     setInitialValue("");
     setMonthlyValue("");
+    setResults({ total: "", totalInvested: "", interest: "" });
   };
 
   const calculate = () => {
@@ -61,7 +69,11 @@ const CalculatorForm = ({ setResults }) => {
       2
     );
     const interest = parseFloat(total - totalInvested).toFixed(2);
-    setResults({ total, totalInvested, interest });
+    setResults({
+      total: formatCurrency(total),
+      totalInvested: formatCurrency(totalInvested),
+      interest: formatCurrency(interest),
+    });
   };
 
   return (
