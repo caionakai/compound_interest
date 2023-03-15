@@ -11,18 +11,18 @@ const CalculatorForm = ({ setResults }) => {
   const [interestRateFrequency, setInterestRateFrequency] = useState("yearly");
   const [periodFrequency, setPeriodFrequency] = useState("yearly");
 
-  const [interestRate, setInterestRate] = useState(0);
-  const [period, setPeriod] = useState(0);
-  const [initialValue, setInitialValue] = useState(0);
-  const [monthlyValue, setMonthlyValue] = useState(0);
+  const [interestRate, setInterestRate] = useState("");
+  const [period, setPeriod] = useState("");
+  const [initialValue, setInitialValue] = useState("");
+  const [monthlyValue, setMonthlyValue] = useState("");
 
   const cleanCalculator = () => {
     setInterestRateFrequency("yearly");
     setPeriodFrequency("yearly");
-    setInterestRate(0);
-    setPeriod(0);
-    setInitialValue(0);
-    setMonthlyValue(0);
+    setInterestRate("");
+    setPeriod("");
+    setInitialValue("");
+    setMonthlyValue("");
   };
 
   const calculate = () => {
