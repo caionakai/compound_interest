@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MathComponent } from "mathjax-react";
 import Navbar from "./components/Navbar/Navbar";
 import CalculatorForm from "./components/CalculatorForm/CalculatorForm";
 import ResultBox from "./components/ResultBox/ResultBox";
@@ -11,7 +12,6 @@ function App() {
     totalInvested: 0,
     interest: 0,
   });
-
   return (
     <div className={styles.app}>
       <Navbar></Navbar>
@@ -33,6 +33,20 @@ function App() {
           credor, de modo que os juros no próximo período sejam ganhos sobre a
           soma principal mais os juros acumulados anteriormente.
         </p>
+
+        <b>Fórmula</b>
+        <p>
+          A fórmula para calcular os juros compostos com investimentos
+          periódicos é a seguinte:
+        </p>
+        <div className={styles.formula}>
+          <MathComponent
+            tex={String.raw`FV = P \ast (1+\frac{r}{n})^{nt} + PMT \ast \frac{((1+\frac{r}{n})^{nt} - 1)}{\frac{r}{n}}`}
+          />
+          <MathComponent
+            tex={String.raw`FV = P \ast (1+\frac{r}{n})^{nt} + PMT \ast \frac{((1+\frac{r}{n})^{nt} - 1)}{\frac{r}{n}}`}
+          />
+        </div>
       </div>
     </div>
   );
