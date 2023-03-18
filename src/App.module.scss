@@ -31,15 +31,3 @@
   }
 
 }
-
-// theorically we could achive this, by setting component's
-// display to false but it makes the generated svg unreadable
-.formula > * > mjx-container{
-  display: inline !important;
-}
-
-.formula {
-  & > div {
-    margin-top: 20px;
-  }
-}
