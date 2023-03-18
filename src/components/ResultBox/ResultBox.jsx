@@ -6,7 +6,7 @@ const ResultBox = ({ title, value }) => {
   return (
     <div className={styles.resultBox}>
       <p>{title}</p>
-      <span>€ {value}</span>
+      <span>{value}</span>
     </div>
   );
 };
