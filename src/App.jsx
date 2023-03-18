@@ -8,10 +8,11 @@ import styles from "./App.module.scss";
 
 function App() {
   const [results, setResults] = useState({
-    total: 0,
-    totalInvested: 0,
-    interest: 0,
+    total: "",
+    totalInvested: "",
+    interest: "",
   });
+
   return (
     <div className={styles.app}>
       <Navbar></Navbar>
