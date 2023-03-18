@@ -2,10 +2,16 @@
 // display to false but it makes the generated svg unreadable
 .formula > * > mjx-container{
     display: inline !important;
-  }
+}
 
-  .formula {
+.formula {
     & > div {
-      margin-top: 20px;
+        margin-top: 20px;
+    }
+
+    @media screen and (max-width: 440px){
+        svg {
+            width: 350px;
+        }
     }
 }
