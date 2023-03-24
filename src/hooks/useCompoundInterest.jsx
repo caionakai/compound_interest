@@ -1,4 +1,9 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setInterestRateFrequency,
+  setPeriodFrequency,
+} from "../redux/slices/compoundInterestSlice";
 
 const formatCurrency = (number) => {
   return new Intl.NumberFormat("de-DE", {
@@ -8,7 +13,12 @@ const formatCurrency = (number) => {
 };
 
 function useCompoundInterest() {
-  const [interestRateFrequency, setInterestRateFrequency] = useState("yearly");
+  const interestRateFrequency = useSelector(
+    (state) => state.compoundInterest.interestRateFrequency
+  );
+  const dispatch = useDispatch();
+
+  // const [interestRateFrequency, setInterestRateFrequency] = useState("yearly");
   const [periodFrequency, setPeriodFrequency] = useState("yearly");
 
   const [interestRate, setInterestRate] = useState("");
@@ -17,7 +27,8 @@ function useCompoundInterest() {
   const [monthlyValue, setMonthlyValue] = useState("");
 
   const cleanCalculator = () => {
-    setInterestRateFrequency("yearly");
+    //setInterestRateFrequency("yearly");
+    dispatch(setInterestRateFrequency("yearly"));
     setPeriodFrequency("yearly");
     setInterestRate("");
     setPeriod("");
@@ -58,9 +69,13 @@ function useCompoundInterest() {
     };
   };
 
+  const setInterestRateFrequency2 = (value) => {
+    dispatch(setInterestRateFrequency(value));
+  };
+
   return {
     interestRateFrequency,
-    setInterestRateFrequency,
+    setInterestRateFrequency2,
     periodFrequency,
     setPeriodFrequency,
     interestRate,

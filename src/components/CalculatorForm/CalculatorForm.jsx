@@ -6,6 +6,7 @@ import InputGroup from "../Input/InputGroup";
 import Select from "../Select/Select";
 
 import styles from "./CalculatorForm.module.scss";
+import useCompoundInterest from "../../hooks/useCompoundInterest";
 
 const formatCurrency = (number) => {
   return new Intl.NumberFormat("de-DE", {
@@ -15,7 +16,9 @@ const formatCurrency = (number) => {
 };
 
 const CalculatorForm = ({ setResults }) => {
-  const [interestRateFrequency, setInterestRateFrequency] = useState("yearly");
+  const { interestRateFrequency, setInterestRateFrequency2 } =
+    useCompoundInterest();
+  // const [interestRateFrequency, setInterestRateFrequency] = useState("yearly");
   const [periodFrequency, setPeriodFrequency] = useState("yearly");
 
   const [interestRate, setInterestRate] = useState("");
@@ -24,7 +27,7 @@ const CalculatorForm = ({ setResults }) => {
   const [monthlyValue, setMonthlyValue] = useState("");
 
   const cleanCalculator = () => {
-    setInterestRateFrequency("yearly");
+    setInterestRateFrequency2("yearly");
     setPeriodFrequency("yearly");
     setInterestRate("");
     setPeriod("");
@@ -93,7 +96,7 @@ const CalculatorForm = ({ setResults }) => {
         <InputGroup.Input value={interestRate} setState={setInterestRate} />
         <Select
           value={interestRateFrequency}
-          setState={setInterestRateFrequency}
+          setState={setInterestRateFrequency2}
         >
           <Select.Option value="yearly">Ano</Select.Option>
           <Select.Option value="monthly">Mês</Select.Option>
