@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import Navbar from "./components/Navbar/Navbar";
 import CalculatorForm from "./components/CalculatorForm/CalculatorForm";
 import ResultBox from "./components/ResultBox/ResultBox";
@@ -7,17 +7,12 @@ import Formula from "./components/Formula/Formula";
 import styles from "./App.module.scss";
 
 function App() {
-  const [results, setResults] = useState({
-    total: "",
-    totalInvested: "",
-    interest: "",
-  });
-
+  const results = useSelector((state) => state.compoundInterest.results);
   return (
     <div className={styles.app}>
       <Navbar></Navbar>
       <div className={styles.main}>
-        <CalculatorForm setResults={setResults} />
+        <CalculatorForm />
         <div className={styles.results}>
           <ResultBox title="Total" value={results.total} />
           <ResultBox title="Total Investido" value={results.totalInvested} />

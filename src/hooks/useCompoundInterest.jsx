@@ -1,8 +1,12 @@
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setInterestRateFrequency,
   setPeriodFrequency,
+  setInterestRate,
+  setPeriod,
+  setInitialValue,
+  setMonthlyValue,
+  setResults,
 } from "../redux/slices/compoundInterestSlice";
 
 const formatCurrency = (number) => {
@@ -13,28 +17,62 @@ const formatCurrency = (number) => {
 };
 
 function useCompoundInterest() {
+  const dispatch = useDispatch();
+
   const interestRateFrequency = useSelector(
     (state) => state.compoundInterest.interestRateFrequency
   );
-  const dispatch = useDispatch();
 
-  // const [interestRateFrequency, setInterestRateFrequency] = useState("yearly");
-  const [periodFrequency, setPeriodFrequency] = useState("yearly");
+  const periodFrequency = useSelector(
+    (state) => state.compoundInterest.periodFrequency
+  );
 
-  const [interestRate, setInterestRate] = useState("");
-  const [period, setPeriod] = useState("");
-  const [initialValue, setInitialValue] = useState("");
-  const [monthlyValue, setMonthlyValue] = useState("");
+  const interestRate = useSelector(
+    (state) => state.compoundInterest.interestRate
+  );
+
+  const period = useSelector((state) => state.compoundInterest.period);
+
+  const initialValue = useSelector(
+    (state) => state.compoundInterest.initialValue
+  );
+
+  const monthlyValue = useSelector(
+    (state) => state.compoundInterest.monthlyValue
+  );
+
+  const dispatchInterestRateFrequency = (value) => {
+    dispatch(setInterestRateFrequency(value));
+  };
+
+  const dispatchPeriodFrequency = (value) => {
+    dispatch(setPeriodFrequency(value));
+  };
+
+  const dispatchInterestRate = (value) => {
+    dispatch(setInterestRate(value));
+  };
+
+  const dispatchPeriod = (value) => {
+    dispatch(setPeriod(value));
+  };
+
+  const dispatchInitialValue = (value) => {
+    dispatch(setInitialValue(value));
+  };
+
+  const dispatchMonthlyValue = (value) => {
+    dispatch(setMonthlyValue(value));
+  };
 
   const cleanCalculator = () => {
-    //setInterestRateFrequency("yearly");
-    dispatch(setInterestRateFrequency("yearly"));
-    setPeriodFrequency("yearly");
-    setInterestRate("");
-    setPeriod("");
-    setInitialValue("");
-    setMonthlyValue("");
-    setResults({ total: "", totalInvested: "", interest: "" });
+    dispatchInterestRateFrequency("yearly");
+    dispatchPeriodFrequency("yearly");
+    dispatchInterestRate("");
+    dispatchPeriod("");
+    dispatchInitialValue("");
+    dispatchMonthlyValue("");
+    dispatch(setResults({ total: "", totalInvested: "", interest: "" }));
   };
 
   const calculateInterest = () => {
@@ -62,30 +100,28 @@ function useCompoundInterest() {
     );
     const interest = parseFloat(total - totalInvested).toFixed(2);
 
-    return {
-      total: formatCurrency(total),
-      totalInvested: formatCurrency(totalInvested),
-      interest: formatCurrency(interest),
-    };
-  };
-
-  const setInterestRateFrequency2 = (value) => {
-    dispatch(setInterestRateFrequency(value));
+    dispatch(
+      setResults({
+        total: formatCurrency(total),
+        totalInvested: formatCurrency(totalInvested),
+        interest: formatCurrency(interest),
+      })
+    );
   };
 
   return {
     interestRateFrequency,
-    setInterestRateFrequency2,
+    dispatchInterestRateFrequency,
     periodFrequency,
-    setPeriodFrequency,
+    dispatchPeriodFrequency,
     interestRate,
-    setInterestRate,
+    dispatchInterestRate,
     period,
-    setPeriod,
+    dispatchPeriod,
     initialValue,
-    setInitialValue,
+    dispatchInitialValue,
     monthlyValue,
-    setMonthlyValue,
+    dispatchMonthlyValue,
     cleanCalculator,
     calculateInterest,
   };

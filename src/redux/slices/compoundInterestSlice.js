@@ -23,17 +23,20 @@ export const compoundInterestSlice = createSlice({
       state.periodFrequency = action.payload;
     },
     setInterestRate: (state, action) => {
-      state.interestRate += action.payload;
+      state.interestRate = action.payload;
     },
     setPeriod: (state, action) => {
-      state.period += action.payload;
+      state.period = action.payload;
     },
     setInitialValue: (state, action) => {
-      state.initialValue += action.payload;
+      state.initialValue = action.payload;
     },
     setMonthlyValue: (state, action) => {
-      state.monthlyValue += action.payload;
+      state.monthlyValue = action.payload;
     },
+    setResults: (state, action) => {
+      state.results = action.payload
+    }
   },
 });
 
@@ -45,6 +48,7 @@ export const {
   setPeriod,
   setInitialValue,
   setMonthlyValue,
+  setResults,
 } = compoundInterestSlice.actions;
 
 export default compoundInterestSlice.reducer;
