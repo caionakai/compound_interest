@@ -17,6 +17,7 @@ const Formula = () => {
     period,
     initialValue: P,
     monthlyValue: PMT,
+    isFormInvalid,
   } = useCompoundInterest();
 
   let r = interestRate / 100;
@@ -40,7 +41,7 @@ const Formula = () => {
   const calcPowMinusOneDividedByrN = calcPowMinusOne / rN;
 
   const renderFormulaResolution = () => {
-    // if(formIsInvalid) return;
+    if (isFormInvalid()) return;
     return (
       <>
         <MathComponent

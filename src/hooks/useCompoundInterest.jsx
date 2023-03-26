@@ -65,6 +65,11 @@ function useCompoundInterest() {
     dispatch(setMonthlyValue(value));
   };
 
+  const isFormInvalid = () => {
+    if (!initialValue || !monthlyValue || !interestRate || !period) return true;
+    return false;
+  };
+
   const cleanCalculator = () => {
     dispatchInterestRateFrequency("yearly");
     dispatchPeriodFrequency("yearly");
@@ -124,6 +129,7 @@ function useCompoundInterest() {
     dispatchMonthlyValue,
     cleanCalculator,
     calculateInterest,
+    isFormInvalid,
   };
 }
 
