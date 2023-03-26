@@ -5,6 +5,8 @@
 }
 
 .formula {
+    overflow-x: auto;
+
     & > div {
         margin-top: 20px;
     }
