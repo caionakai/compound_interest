@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import styles from "./InputGroup.module.scss";
 
-const Input = ({ value, setState }) => {
+const Input = ({ value, setState, isMandatory }) => {
   const [isInputInvalid, setIsInputInvalid] = useState(false);
   const onBlur = () => {
     if (value) setIsInputInvalid(false);
-    else setIsInputInvalid(true);
+    else if (isMandatory && !value) setIsInputInvalid(true);
   };
 
   return (
@@ -24,8 +24,9 @@ const Input = ({ value, setState }) => {
 };
 
 Input.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   setState: PropTypes.func.isRequired,
+  isMandatory: PropTypes.bool,
 };
 
 export default Input;

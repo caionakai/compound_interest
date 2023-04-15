@@ -29,6 +29,7 @@ const CalculatorForm = () => {
       <InputGroup label="Valor Inicial">
         <InputGroup.TextLeft>€</InputGroup.TextLeft>
         <InputGroup.Input
+          isMandatory
           value={initialValue}
           setState={dispatchInitialValue}
         />
@@ -45,6 +46,7 @@ const CalculatorForm = () => {
       <InputGroup label="Taxa de Juros">
         <InputGroup.TextLeft>%</InputGroup.TextLeft>
         <InputGroup.Input
+          isMandatory
           value={interestRate}
           setState={dispatchInterestRate}
         />
@@ -61,7 +63,11 @@ const CalculatorForm = () => {
         <InputGroup.TextLeft>
           <GoCalendar />
         </InputGroup.TextLeft>
-        <InputGroup.Input value={period} setState={dispatchPeriod} />
+        <InputGroup.Input
+          isMandatory
+          value={period}
+          setState={dispatchPeriod}
+        />
         <Select value={periodFrequency} setState={dispatchPeriodFrequency}>
           <Select.Option value="yearly">Ano</Select.Option>
           <Select.Option value="monthly">Mês</Select.Option>
