@@ -2,6 +2,11 @@
   width: 140px;
   height: 30px;
   cursor: pointer;
+
+  &:focus {
+    border: 2px solid #198754;
+    outline: 0;
+  }
 }
 
 .primary {

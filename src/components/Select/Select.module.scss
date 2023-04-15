@@ -3,4 +3,10 @@
     border-radius: 0px 6px 6px 0px;
     border: none;
     min-width: 4rem;
+
+    &:focus {
+        border: 1px solid #198754;
+        box-shadow: 0 0 0 0.15rem rgba(25,135,84,.25);
+        outline: 0;
+    }
 }
