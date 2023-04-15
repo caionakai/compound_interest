@@ -75,16 +75,21 @@ const Formula = () => {
       <p>
         A fórmula para calcular os juros compostos com investimentos periódicos
         é a mostrada a seguir, sendo que:
-        <ul>
-          <li>P = valor inicial</li>
-          <li>r = taxa de juros (em decimal)</li>
-          <li>
-            n = número de vezes que o juros é composto (12 = mensal, 4 =
-            quadrimestre, 2 = bi anual, 1 = anual)
-          </li>
-          <li>t = período em anos (dividir por 12 se for mensal, etc)</li>
-          <li>PMT = valor mensal</li>
-        </ul>
+      </p>
+      <ul>
+        <li>P = valor inicial</li>
+        <li>r = taxa de juros (em decimal)</li>
+        <li>
+          n = número de vezes que o juros é composto (12 = mensal, 4 =
+          quadrimestre, 2 = bi anual, 1 = anual)
+        </li>
+        <li>t = período em anos (dividir por 12 se for mensal, etc)</li>
+        <li>PMT = valor mensal</li>
+      </ul>
+      <b>Observação</b>
+      <p>
+        A calculadora está a assumir que a composição dos juros acontece
+        mensalmente, ou seja, n = 12.
       </p>
       <div className={styles.formula}>
         <MathComponent
