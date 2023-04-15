@@ -13,7 +13,7 @@ const ResultBox = ({ title, value }) => {
 
 ResultBox.propTypes = {
   title: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default ResultBox;
