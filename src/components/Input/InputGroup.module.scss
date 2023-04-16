@@ -3,6 +3,10 @@
   margin-left: 2rem;
   width: 36%;
 
+  @media screen and (max-width: 550px){
+    margin-left: 0;
+  }
+
   @media screen and (max-width: 850px){
     width: 100%;
     margin-top: 10px;
