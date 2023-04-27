@@ -11,6 +11,7 @@ function App() {
   return (
     <div className={styles.app}>
       <Navbar></Navbar>
+      <h1>Test</h1>
       <div className={styles.main}>
         <CalculatorForm />
         <div className={styles.results}>
